@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class HomePage extends StatefulWidget {
+  HomePage({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -15,10 +15,10 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  _MyHomePageState createState() => new _MyHomePageState();
+  _HomePageState createState() => new _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomePageState extends State<HomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -40,16 +40,16 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return new Scaffold(
-      appBar: new AppBar(
+    return Scaffold(
+      appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: new Text(widget.title),
+        title: Text(widget.title),
       ),
-      body: new Center(
+      body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: new Column(
+        child: Column(
           // Column is also layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
           // children horizontally, and tries to be as tall as its parent.
@@ -65,21 +65,68 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new Text(
+            Text(
               'You have pushed the button this many times:',
             ),
-            new Text(
+            Text(
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
           ],
         ),
       ),
-      floatingActionButton: new FloatingActionButton(
+      bottomNavigationBar: _bottomNavigationBar(),
+      floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: new Icon(Icons.add),
+        child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+
+  Widget _bottomNavigationBar() {
+    List<BottomNavigationBarItem> navigationItems = new List();
+    navigationItems.add(_todayNavigation());
+    navigationItems.add(_weeklyNavigation());
+    navigationItems.add(_monthlyNavigation());
+
+    return BottomNavigationBar(
+      items: navigationItems,
+      onTap: (index) => _onTap(index),
+    );
+  }
+
+  void _onTap(int index) {
+    if (index == 1) {
+      Navigator.pushNamed(context, 'weekly');
+    } else if (index == 2) {
+      Navigator.pushNamed(context, 'monthly');
+    } else {
+      Navigator.pushNamed(context, 'today');
+    }
+  }
+
+  BottomNavigationBarItem _monthlyNavigation() {
+    return BottomNavigationBarItem(
+      icon: Icon(Icons.cloud),
+      activeIcon: Icon(Icons.cloud_circle),
+      title: Text('Month'),
+    );
+  }
+
+  BottomNavigationBarItem _weeklyNavigation() {
+    return BottomNavigationBarItem(
+      icon: Icon(Icons.cloud),
+      activeIcon: Icon(Icons.cloud_circle),
+      title: Text('Week')
+    );
+  }
+
+  BottomNavigationBarItem _todayNavigation() {
+    return BottomNavigationBarItem(
+      icon: Icon(Icons.cloud),
+      activeIcon: Icon(Icons.cloud_circle),
+      title: Text('Today')
     );
   }
 }
