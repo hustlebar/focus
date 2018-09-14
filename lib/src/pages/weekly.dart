@@ -16,14 +16,14 @@ class WeeklyPage extends StatelessWidget {
       appBar: AppBar(title: Text(title),),
       bottomNavigationBar: BottomNavigation(current: 1,),
       floatingActionButton: FloatingActionButton(
-        onPressed: _onPressed,
+        onPressed: () => _onPressed(context),
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),
     );
   }
 
-  void _onPressed() {
-
+  void _onPressed(BuildContext context) {
+    Navigator.pushNamed(context, 'create');
   }
 }
