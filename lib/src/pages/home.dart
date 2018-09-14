@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/bottom_navigation.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
@@ -76,62 +77,12 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      bottomNavigationBar: _bottomNavigationBar(),
+      bottomNavigationBar: BottomNavigation(current: 0,),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
-  }
-
-  Widget _bottomNavigationBar() {
-    List<BottomNavigationBarItem> navigationItems = new List();
-    navigationItems.add(_todayNavigation());
-    navigationItems.add(_weeklyNavigation());
-    navigationItems.add(_monthlyNavigation());
-
-    return BottomNavigationBar(
-      items: navigationItems,
-      onTap: (index) => _onTap(index),
-    );
-  }
-
-  void _onTap(int index) {
-    if (_current == index) {
-      return;
-    }
-
-    if (index == 1) {
-      Navigator.pushNamed(context, 'weekly');
-    } else if (index == 2) {
-      Navigator.pushNamed(context, 'monthly');
-    } else {
-      Navigator.pushReplacementNamed(context, 'today');
-    }
-  }
-
-  BottomNavigationBarItem _monthlyNavigation() {
-    return BottomNavigationBarItem(
-      icon: Icon(Icons.cloud),
-      activeIcon: Icon(Icons.cloud_circle),
-      title: Text('Month'),
-    );
-  }
-
-  BottomNavigationBarItem _weeklyNavigation() {
-    return BottomNavigationBarItem(
-      icon: Icon(Icons.cloud),
-      activeIcon: Icon(Icons.cloud_circle),
-      title: Text('Week')
-    );
-  }
-
-  BottomNavigationBarItem _todayNavigation() {
-    return BottomNavigationBarItem(
-      icon: Icon(Icons.cloud),
-      activeIcon: Icon(Icons.cloud_circle),
-      title: Text('Today')
     );
   }
 }
