@@ -20,6 +20,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _counter = 0;
+  int _current = 0;
 
   void _incrementCounter() {
     setState(() {
@@ -97,12 +98,16 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _onTap(int index) {
+    if (_current == index) {
+      return;
+    }
+
     if (index == 1) {
       Navigator.pushNamed(context, 'weekly');
     } else if (index == 2) {
       Navigator.pushNamed(context, 'monthly');
     } else {
-      Navigator.pushNamed(context, 'today');
+      Navigator.pushReplacementNamed(context, 'today');
     }
   }
 
