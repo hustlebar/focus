@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 import '../widgets/bottom_navigation.dart';
 
-class WeeklyPage extends StatelessWidget {
-  WeeklyPage({Key key, this.title}) : super(key: key);
+class WeeklyPage extends StatefulWidget {
 
+  WeeklyPage({Key key, this.title}) : super(key: key);
+  final String title;
+
+  @override
+  State<StatefulWidget> createState() {
+    return new WeeklyPageState(title);
+  }
+}
+
+class WeeklyPageState extends State<WeeklyPage> {
+  WeeklyPageState(this.title);
   final String title;
 
   @override

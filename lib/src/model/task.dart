@@ -3,4 +3,7 @@ class Task {
 
   final String title;
   final DateTime deadline;
+  TaskType taskType;
 }
+
+enum TaskType {work, home, community, personal}
