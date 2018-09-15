@@ -50,17 +50,21 @@ class WeeklyPageState extends State<WeeklyPage> {
 
   Widget _buildList(BuildContext context) {
     return ListView.builder(
-      padding: const EdgeInsets.all(25.0),
-      itemExtent: 25.0,
+      padding: const EdgeInsets.all(15.0),
+      itemExtent: 30.0,
       itemCount: tasks.length,
       itemBuilder: (BuildContext context, int index) {
+
         return _buildRow(tasks[index]);
       }
     );
   }
 
   Widget _buildRow(Task task) {
-    return Text(task.title);
+    return ListTile(
+      leading: const Icon(Icons.assignment),
+      title: Text(task.title),
+    );
   }
 
   void _onPressed(BuildContext context) {
