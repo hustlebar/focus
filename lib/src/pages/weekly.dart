@@ -60,12 +60,50 @@ class WeeklyPageState extends State<WeeklyPage> {
   }
 
   Widget _buildRow(Task task) {
-    return ListTile(
-      leading: const Icon(Icons.assignment),
-      title: Text(task.title),
-      subtitle: Text('sample'),
-      onTap: _onTap,
+    return Card(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          ListTile(
+            leading: const Icon(Icons.assignment),
+            title: Text(task.title),
+            subtitle: Text('sample'),
+            onTap: _onTap,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              ActionChip(
+                label: Text('Mark Done'),
+                backgroundColor: Colors.green,
+                onPressed: () => _onDone(task),
+              ),
+              SizedBox(
+                width: 5.0,
+                height: 5.0,
+              ),
+              ActionChip(
+                label: Text('Mark Follow-up'),
+                backgroundColor: Colors.amber,
+                onPressed: () => _onFollowup(task),
+              ),
+              SizedBox(
+                width: 5.0,
+                height: 5.0,
+              )
+            ],
+          )
+        ],
+      ),
     );
+  }
+
+  void _onDone(Task task) {
+    print('Enters _onDone ${task.title}');
+  }
+
+  void _onFollowup(Task task) {
+    print('Enters _onFollowup ${task.title}');
   }
 
   void _onTap() {
