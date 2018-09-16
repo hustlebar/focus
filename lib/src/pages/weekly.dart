@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/bottom_navigation.dart';
 import 'package:focus/src/model/task.dart';
+import 'package:focus/src/widgets/space.dart';
 
 class WeeklyPage extends StatefulWidget {
 
@@ -74,23 +75,11 @@ class WeeklyPageState extends State<WeeklyPage> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               ActionChip(
-                label: Text('Mark Done'),
-                backgroundColor: Colors.green,
-                onPressed: () => _onDone(task),
-              ),
-              SizedBox(
-                width: 5.0,
-                height: 5.0,
-              ),
-              ActionChip(
-                label: Text('Mark Follow-up'),
+                label: Text('Mark Follow up'),
                 backgroundColor: Colors.amber,
                 onPressed: () => _onFollowup(task),
               ),
-              SizedBox(
-                width: 5.0,
-                height: 5.0,
-              )
+              Space(5.0, 5.0)
             ],
           )
         ],
