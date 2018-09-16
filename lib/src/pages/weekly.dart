@@ -51,7 +51,6 @@ class WeeklyPageState extends State<WeeklyPage> {
   Widget _buildList(BuildContext context) {
     return ListView.builder(
       padding: const EdgeInsets.all(15.0),
-      itemExtent: 30.0,
       itemCount: tasks.length,
       itemBuilder: (BuildContext context, int index) {
 
@@ -64,6 +63,7 @@ class WeeklyPageState extends State<WeeklyPage> {
     return ListTile(
       leading: const Icon(Icons.assignment),
       title: Text(task.title),
+      subtitle: Text('sample'),
     );
   }
 
