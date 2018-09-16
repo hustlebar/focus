@@ -41,7 +41,7 @@ class WeeklyPageState extends State<WeeklyPage> {
       ),
       bottomNavigationBar: BottomNavigation(current: 1,),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => _onPressed(context),
+        onPressed: () => _onAdd(context),
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),
@@ -64,10 +64,17 @@ class WeeklyPageState extends State<WeeklyPage> {
       leading: const Icon(Icons.assignment),
       title: Text(task.title),
       subtitle: Text('sample'),
+      onTap: _onTap,
     );
   }
 
-  void _onPressed(BuildContext context) {
+  void _onTap() {
+    setState(() {
+
+    });
+  }
+
+  void _onAdd(BuildContext context) {
     Navigator.pushNamed(context, 'create');
   }
 }
