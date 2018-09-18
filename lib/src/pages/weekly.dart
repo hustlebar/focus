@@ -36,7 +36,25 @@ class WeeklyPageState extends State<WeeklyPage> {
 
   Scaffold _buildUi(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(title),),
+      appBar: AppBar(
+        title: Text(title),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.center_focus_strong),
+            tooltip: 'Tasks',
+            onPressed: () => {
+
+            },
+          ),
+          IconButton(
+            icon: Icon(Icons.center_focus_weak),
+            tooltip: 'Follow up',
+            onPressed: () => {
+
+            },
+          )
+        ],
+      ),
       body: Center(
         child: _buildList(context),
       ),
