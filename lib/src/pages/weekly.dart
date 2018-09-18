@@ -49,9 +49,7 @@ class WeeklyPageState extends State<WeeklyPage> {
           IconButton(
             icon: Icon(Icons.center_focus_weak),
             tooltip: 'Follow up',
-            onPressed: () => {
-
-            },
+            onPressed: _onFollowUp,
           )
         ],
       ),
@@ -103,6 +101,10 @@ class WeeklyPageState extends State<WeeklyPage> {
         ],
       ),
     );
+  }
+
+  void _onFollowUp() {
+    Navigator.pushReplacementNamed(context, 'followup');
   }
 
   void _onDone(Task task) {

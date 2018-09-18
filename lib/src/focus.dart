@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'pages/home.dart';
-import 'pages/weekly.dart';
-import 'pages/monthly.dart';
-import 'pages/create.dart';
+import 'package:focus/src/pages/home.dart';
+import 'package:focus/src/pages/weekly.dart';
+import 'package:focus/src/pages/monthly.dart';
+import 'package:focus/src/pages/create.dart';
+import 'package:focus/src/pages/followup.dart';
 
 class FocusApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -19,7 +20,8 @@ class FocusApp extends StatelessWidget {
         'today': (context) => HomePage(title: 'Focus',),
         'weekly': (context) => WeeklyPage(title: 'Focus Weekly',),
         'monthly': (context) => MonthlyPage(title: 'Focus Monthly',),
-        'create': (context) => CreateTaskPage()
+        'create': (context) => CreateTaskPage(),
+        'followup': (context) => FollowUp()
       },
     );
   }
