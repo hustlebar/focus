@@ -39,13 +39,11 @@ class WeeklyPageState extends State<WeeklyPage> {
       appBar: AppBar(
         title: Text(title),
         actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.center_focus_strong),
-            tooltip: 'Tasks',
-            onPressed: () => {
-
-            },
-          ),
+//          IconButton(
+//            icon: Icon(Icons.center_focus_strong),
+//            tooltip: 'Tasks',
+//            onPressed: _onTasks,
+//          ),
           IconButton(
             icon: Icon(Icons.center_focus_weak),
             tooltip: 'Follow up',
@@ -101,6 +99,10 @@ class WeeklyPageState extends State<WeeklyPage> {
         ],
       ),
     );
+  }
+
+  void _onTasks() {
+    Navigator.pushReplacementNamed(context, 'weekly');
   }
 
   void _onFollowUp() {
