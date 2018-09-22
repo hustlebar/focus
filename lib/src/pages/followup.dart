@@ -12,11 +12,6 @@ class FollowUp extends StatelessWidget {
             tooltip: 'Tasks',
             onPressed: () => _onTasks(context),
           ),
-//          IconButton(
-//            icon: Icon(Icons.center_focus_weak),
-//            tooltip: 'Follow up',
-//            onPressed: () => _onFollowUp(context),
-//          )
         ],
       ),
       body: Center(
